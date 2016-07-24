@@ -23,7 +23,7 @@ export const SignInPanel = (props) => {
 	}
   if (props.mode === 3) {
     newSpot = <h3 className='display'>
-    I am at a spot
+    Add a spot using my location 
     <NewSpot userLocation={props.userLocation} skateSpots={props.skateSpots} getSkateSpots={props.getSkateSpots}/>
     </h3>
   }
