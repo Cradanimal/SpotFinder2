@@ -56,7 +56,7 @@ export default class Info extends React.Component {
 
     if (this.props.currentSpot.checkin.length > 0) {
       checkinHeader = <p className="bold-italic">Skaters currently at this spot!</p>;
-      checkedInUser = this.props.currentSpot.checkin.map((user) => {
+      checkedInUser = this.props.currentSpot.checkin.map((user, index) => {
         if (user._id === this.props.userObj._id) {
           checkedIn = true;
         }
@@ -97,8 +97,8 @@ export default class Info extends React.Component {
                 <div className="center-div">
                   <h5>RECENT COMMENTS</h5>
                 </div>
-                {this.props.currentSpot.comments.map((comment)=> {
-                  return (<div className="comment-div">
+                {this.props.currentSpot.comments.map((comment, index)=> {
+                  return (<div key={comment._id || index} className="comment-div">
                             <span className="img-span">
                               <img src="img/skateboarder.png" alt="User Image" height="90" width="120" className="comment-image"/>
                             </span>

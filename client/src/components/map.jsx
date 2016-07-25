@@ -24,8 +24,8 @@ export default class OurMap extends React.Component {
     return (
       <GoogleMap bootstrapURLKeys={{key: 'AIzaSyDZjkD659gGlpyUKXU14_Tomji58BSfI0A',language: 'en'}} options={this.createMapOptions} center={this.props.center} zoom={this.props.zoom} onClick={ () => { this.spotOnBlur() } }>
         <UserSpot user={this.props.user} lat={this.props.userLocation.lat} lng={this.props.userLocation.lng} />
-        {this.props.skateSpotsData.map( (skateSpotData) => {
-          return ( <SkateSpot lat={skateSpotData.lat} lng={skateSpotData.lng} 
+        {this.props.skateSpotsData.map( (skateSpotData, index) => {
+          return ( <SkateSpot key={skateSpotData._id || index} lat={skateSpotData.lat} lng={skateSpotData.lng} 
                    skateSpotData={skateSpotData} clickNav={this.props.clickNav} /> );
         })}
       </GoogleMap>
